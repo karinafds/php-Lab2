@@ -1,0 +1,14 @@
+try {
+            if (!preg_match('/^[\w\s]{1,100}$/', $title)) {
+                throw new Exception('Invalid title. Only letters, numbers, and spaces are allowed, with a max length of 100.');
+            }
+            if (!preg_match('/^[\w\s]{1,100}$/', $author)) {
+                throw new Exception('Invalid author name. Only letters, numbers, and spaces are allowed, with a max length of 100.');
+            }
+            if (!preg_match('/^\d{4}$/', $year) || $year < 1000 || $year > date("Y")) {
+                throw new Exception('Invalid year. It must be a four-digit number and cannot be in the future.');
+            }
+            
+            catch (Exception $e) {
+            echo '<p style="color:red;">Error: ' . $e->getMessage() . '</p>';
+        }
